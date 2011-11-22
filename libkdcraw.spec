@@ -9,6 +9,7 @@ URL: http://www.kde.org
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/%name-%version.tar.bz2
 BuildRequires: kdelibs4-devel >= 2:%{version}
 BuildRequires: lcms-devel
+BuildRequires: automoc4
 
 %description
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
