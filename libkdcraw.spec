@@ -1,6 +1,6 @@
 Name:libkdcraw
 Summary: C++ interface around LibRaw library
-Version: 4.7.90
+Version: 4.7.95
 Release: 1
 Epoch: 2
 Group: System/Libraries
