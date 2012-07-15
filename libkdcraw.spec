@@ -34,7 +34,7 @@ Common files for the kdcraw library
 
 #------------------------------------------------	
 
-%define	kdcraw_major 20
+%define	kdcraw_major 21
 %define	libkdcraw %mklibname kdcraw %kdcraw_major
 
 %package -n %{libkdcraw}
