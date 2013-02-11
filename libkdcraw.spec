@@ -43,7 +43,7 @@ Summary:	Kdcraw library
 Group:		System/Libraries
 Requires:	%{name}-common = %{EVRD}
 Obsoletes:	%{_lib}kdcraw20 < 2:4.9.0
-Obsoletes:	%{_lib}kdcraw21 < 2:4.9.0
+Obsoletes:	%{_lib}kdcraw21 < 2:4.10.0
 
 %description -n %{libkdcraw}
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
