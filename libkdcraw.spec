@@ -1,6 +1,6 @@
 Name:		libkdcraw
 Summary:	C++ interface around LibRaw library
-Version:	4.9.4
+Version:	4.10.0
 Release:	1
 Epoch:		2
 Group:		System/Libraries
@@ -35,13 +35,15 @@ Common files for the kdcraw library
 
 #------------------------------------------------
 
-%define kdcraw_major 21
+%define kdcraw_major 22
 %define libkdcraw %mklibname kdcraw %{kdcraw_major}
 
 %package -n %{libkdcraw}
 Summary:	Kdcraw library
 Group:		System/Libraries
-Obsoletes:	%{mklibname kdcraw 20} < %{EVRD}
+Requires:	%{name}-common = %{EVRD}
+Obsoletes:	%{_lib}kdcraw20 < 2:4.9.0
+Obsoletes:	%{_lib}kdcraw21 < 2:4.9.0
 
 %description -n %{libkdcraw}
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
@@ -83,6 +85,11 @@ based on %{name}.
 %makeinstall_std -C build
 
 %changelog
+* Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.0-1
+- New version 4.10.0
+- New library major 22, obsolete old library
+- Library package should require common files
+
 * Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.9.4-1
 - New version 4.9.4
 
