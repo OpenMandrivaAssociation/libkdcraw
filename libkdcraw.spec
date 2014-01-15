@@ -3,14 +3,14 @@ Name:		libkdcraw
 Version:	4.12.1
 Release:	1
 Epoch:		2
+License:	GPLv2+
 Group:		System/Libraries
-License:	GPLv2
 Url:		http://www.kde.org
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	automoc4
 BuildRequires:	kdelibs4-devel
 BuildRequires:	jpeg-devel
-BuildRequires:	pkgconfig(lcms)
+BuildRequires:	pkgconfig(libraw)
 
 %description
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
@@ -35,7 +35,7 @@ Common files for the kdcraw library
 
 #------------------------------------------------
 
-%define kdcraw_major 22
+%define kdcraw_major 23
 %define libkdcraw %mklibname kdcraw %{kdcraw_major}
 
 %package -n %{libkdcraw}
@@ -44,6 +44,7 @@ Group:		System/Libraries
 Requires:	%{name}-common = %{EVRD}
 Obsoletes:	%{_lib}kdcraw20 < 2:4.9.0
 Obsoletes:	%{_lib}kdcraw21 < 2:4.10.0
+Obsoletes:	%{_lib}kdcraw22 < 2:4.12.0
 
 %description -n %{libkdcraw}
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
@@ -60,7 +61,6 @@ Summary:	Devel stuff for %{name}
 Group:		Development/KDE and Qt
 Requires:	kdelibs4-devel
 Requires:	%{libkdcraw} = %{EVRD}
-Requires:	pkgconfig(lcms)
 Conflicts:	kdegraphics4-devel < 2:4.6.90
 
 %description devel
@@ -87,6 +87,8 @@ based on %{name}.
 %changelog
 * Tue Jan 14 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.12.1-1
 - New version 4.12.1
+- New library major 23
+- Update BuildRequires and Requires
 
 * Wed Dec 04 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.4-1
 - New version 4.11.4
