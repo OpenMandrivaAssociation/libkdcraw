@@ -1,12 +1,14 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
+
 Summary:	C++ interface around LibRaw library
 Name:		libkdcraw
-Version:	4.14.3
-Release:	2
+Version:	14.11.97
+Release:	1
 Epoch:		2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.kde.org
-Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	automoc4
 BuildRequires:	kdelibs4-devel
 BuildRequires:	jpeg-devel
@@ -85,8 +87,8 @@ based on %{name}.
 %makeinstall_std -C build
 
 %changelog
-* Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.14.3-1
-- New version 4.14.3
+* Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:14.11.97-1
+- New version 14.11.97
 
 * Wed Oct 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.14.2-1
 - New version 4.14.2
