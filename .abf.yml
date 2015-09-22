@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   libkdcraw-15.08.0.tar.xz: 80468c08e99c4e104b81b50423e99ae29c1d4444
+sources:
+  libkdcraw-15.08.1.tar.xz: 75e91308e2c36175bb7ec9b57cd3d4da5ddaa26a
