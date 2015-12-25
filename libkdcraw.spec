@@ -64,7 +64,7 @@ based on %{name}.
 %files -n %{devname}
 %{_includedir}/KF5/KDCRAW
 %{_includedir}/KF5/libkdcraw_version.h
-{_libdir}/*.so
+%{_libdir}/*.so
 %{_libdir}/cmake/KF5KDcraw
 
 #----------------------------------------------------------------------
