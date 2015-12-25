@@ -1,3 +1,6 @@
+%define major 5
+%define libname %mklibname KF5KDcraw %{major}
+%define devname %mklibname KF5KDcraw -d
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	C++ interface around LibRaw library
@@ -9,10 +12,11 @@ License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.kde.org
 Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	automoc4
-BuildRequires:	kdelibs4-devel
-BuildRequires:	jpeg-devel
+BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libraw)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Gui)
+%rename	%{name}-common
 
 %description
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
@@ -20,69 +24,57 @@ picture files. More information about LibRaw can be found at
 http://www.libraw.org.
 
 %files
-%doc README AUTHORS NEWS TODO COPYING
+%doc README AUTHORS
 
 #----------------------------------------------------------------------
-
-%package common
-Summary:	Non-library files for the kdcraw library
-Group:		System/Libraries
-
-%description common
-Common files for the kdcraw library
-
-%files common
-%{_kde_appsdir}/libkdcraw
-%{_kde_iconsdir}/hicolor/*/apps/kdcraw.png
-
-#------------------------------------------------
 
 %define kdcraw_major 23
 %define libkdcraw %mklibname kdcraw %{kdcraw_major}
 
-%package -n %{libkdcraw}
+%package -n %{libname}
 Summary:	Kdcraw library
 Group:		System/Libraries
 Requires:	%{name}-common = %{EVRD}
 Obsoletes:	%{_lib}kdcraw20 < 2:4.9.0
 Obsoletes:	%{_lib}kdcraw21 < 2:4.10.0
 Obsoletes:	%{_lib}kdcraw22 < 2:4.12.0
+Obsoletes:	%{_lib}kdcraw23 < 2:15.12.0
 
-%description -n %{libkdcraw}
+%description -n %{libname}
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
 picture files. More information about LibRaw can be found at
 http://www.libraw.org.
 
-%files -n %{libkdcraw}
-%{_kde_libdir}/libkdcraw.so.%{kdcraw_major}*
+%files -n %{libname}
+%{_libdir}/libKF5KDcraw.so.%{major}*
 
 #-----------------------------------------------------------------------------
 
-%package devel
+%package -n %{devname}
 Summary:	Devel stuff for %{name}
 Group:		Development/KDE and Qt
-Requires:	kdelibs4-devel
-Requires:	%{libkdcraw} = %{EVRD}
+Requires:	%{libname} = %{EVRD}
 Conflicts:	kdegraphics4-devel < 2:4.6.90
+Obsoletes:	libkdcraw-devel < 2:15.12.0
 
-%description devel
+%description -n %{devname}
 This package contains header files needed if you wish to build applications
 based on %{name}.
 
-%files devel
-%{_includedir}/libkdcraw/
-%{_kde_libdir}/libkdcraw.so
-%{_kde_libdir}/pkgconfig/libkdcraw.pc
+%files -n %{devname}
+%{_includedir}/KF5/KDCRAW
+%{_includedir}/KF5/libkdcraw_version.h
+{_libdir}/*.so
+%{_libdir}/cmake/KF5KDcraw
 
 #----------------------------------------------------------------------
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake_kde4 \
-	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
