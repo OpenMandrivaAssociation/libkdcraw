@@ -5,7 +5,7 @@
 
 Summary:	C++ interface around LibRaw library
 Name:		libkdcraw
-Version:	17.08.3
+Version:	17.11.90
 Release:	1
 Epoch:		2
 License:	GPLv2+
