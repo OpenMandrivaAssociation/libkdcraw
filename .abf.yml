@@ -1,2 +1,4 @@
+removed_sources:
+  libkdcraw-17.12.1.tar.xz: 0f9520e1b2486d10f7905148c7b64f4e185d951c
 sources:
-  libkdcraw-17.04.0.tar.xz: 0e473a3bf14d3e061ae95624956444ad319d1515
+  libkdcraw-17.12.2.tar.xz: 07332b8a0a9d561780884d371ce3c85529d9f0eb
