@@ -5,13 +5,13 @@
 
 Summary:	C++ interface around LibRaw library
 Name:		libkdcraw
-Version:	19.11.90
+Version:	19.12.0
 Release:	1
 Epoch:		2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.kde.org
-Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libraw)
 BuildRequires:	pkgconfig(Qt5Core)
