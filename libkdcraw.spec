@@ -12,6 +12,7 @@ License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Patch0:		https://invent.kde.org/graphics/libkdcraw/-/commit/0843c601cbb9a9bb5774ed01b7d90e68fd17950a.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libraw)
 BuildRequires:	pkgconfig(Qt5Core)
@@ -71,7 +72,7 @@ based on %{name}.
 #----------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 %cmake_kde5
 
 %build
