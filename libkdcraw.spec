@@ -5,14 +5,13 @@
 
 Summary:	C++ interface around LibRaw library
 Name:		libkdcraw
-Version:	22.12.0
-Release:	2
+Version:	22.12.1
+Release:	1
 Epoch:		2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
-Patch0:		https://invent.kde.org/graphics/libkdcraw/-/commit/0843c601cbb9a9bb5774ed01b7d90e68fd17950a.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libraw)
 BuildRequires:	pkgconfig(Qt5Core)
