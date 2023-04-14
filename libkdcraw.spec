@@ -5,8 +5,8 @@
 
 Summary:	C++ interface around LibRaw library
 Name:		libkdcraw
-Version:	22.12.3
-Release:	2
+Version:	23.03.90
+Release:	1
 Epoch:		2
 License:	GPLv2+
 Group:		System/Libraries
@@ -64,7 +64,6 @@ based on %{name}.
 
 %files -n %{devname}
 %{_includedir}/KF5/KDCRAW
-%{_includedir}/KF5/libkdcraw_version.h
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5KDcraw
 
