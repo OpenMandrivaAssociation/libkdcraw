@@ -15,7 +15,7 @@
 Summary:	C++ interface around LibRaw library
 Name:		libkdcraw
 Version:	25.08.1
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		https://www.kde.org
@@ -34,6 +34,8 @@ BuildRequires:	cmake(Qt6Core)
 BuildRequires:	cmake(Qt6Gui)
 
 %rename	%{name}-common
+%rename	plasma6-%{name}
+%rename	plasma6-%{name}-common
 
 %description
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
@@ -45,13 +47,13 @@ http://www.libraw.org.
 %{_datadir}/qlogging-categories5/libkdcraw.categories
 
 #----------------------------------------------------------------------
-%package -n plasma6-%{name}
+%package -n %{name}
 Summary:	C++ interface around the LibRaw library for Qt 6
 Group:		System/Libraries
 
-%description -n plasma6-%{name}
+%description -n %{name}
 
-%files -n plasma6-%{name}
+%files -n %{name}
 %{_datadir}/qlogging-categories6/libkdcraw.categories
 
 #----------------------------------------------------------------------
@@ -97,7 +99,7 @@ based on %{name}.
 %package -n %{libname}
 Summary:	Kdcraw library for Qt 6.x
 Group:		System/Libraries
-Requires:	plasma6-%{name} = %{EVRD}
+Requires:	%{name} = %{EVRD}
 
 %description -n %{libname}
 Libkdcraw is a C++ interface around LibRaw library used to decode RAW
