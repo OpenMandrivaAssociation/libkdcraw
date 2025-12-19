@@ -27,6 +27,7 @@ Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libraw)
 %if %{with qt5}
+BuildRequires:	qmake5
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 %endif
